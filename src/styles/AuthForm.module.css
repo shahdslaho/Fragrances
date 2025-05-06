@@ -5,20 +5,21 @@
   align-items: center;
   justify-content: center;
   background: var(--color-bg);
+  padding: 1rem;
 }
 
 .authForm {
   background: #181818;
   border: 1px solid var(--color-gold);
   border-radius: 16px;
-  padding: 48px 40px 40px 40px; /* زيد البادينغ */
+  padding: 48px 40px 40px 40px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
   gap: 22px;
-  min-width: 400px;   /* زيد العرض الأدنى */
-  max-width: 95vw;
-  min-height: 420px;  /* زيد الطول الأدنى */
+  width: 100%;
+  max-width: 450px;
+  min-height: 420px;
 }
 
 .title {
@@ -61,4 +62,61 @@
 .submitBtn:hover {
   background: #fff;
   color: var(--color-gold);
+}
+
+@media (max-width: 768px) {
+  .authForm {
+    padding: 40px 30px;
+    gap: 18px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .input {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .submitBtn {
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .authContainer {
+    padding: 0.5rem;
+  }
+
+  .authForm {
+    padding: 32px 20px;
+    gap: 16px;
+    min-height: 380px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .submitBtn {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .authForm {
+    padding: 24px 16px;
+    min-height: 350px;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
 }

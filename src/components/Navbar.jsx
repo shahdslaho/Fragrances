@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,11 +98,23 @@ function Navbar() {
                   <FaStore className={styles.icon} /> Shop
                 </Link>
               </li>
-              <li>
-                <Link to="/checkout" onClick={() => setIsOpen(false)}>
-                  <FaCreditCard className={styles.icon} /> Checkout
-                </Link>
-              </li>
+            
+              {!isAuthenticated && (
+                <>
+                  <li>
+                    <Link to="/login" onClick={() => setIsOpen(false)}>
+                      <FaSignInAlt className={styles.icon} /> Login
+                    </Link>
+                  </li>
+                </>
+              )}
+              {isAuthenticated && (
+                <li>
+                  <Link onClick={() => { dispatch(logout()); setIsOpen(false); }}>
+                    <FaSignOutAlt className={styles.icon} /> Logout
+                  </Link>
+                </li>
+              )}
             
             </ul>
           </div>

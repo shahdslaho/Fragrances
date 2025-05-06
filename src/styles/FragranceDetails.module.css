@@ -122,31 +122,106 @@
   font-size: 1.5rem;
 }
 
+@media (max-width: 1200px) {
+  .detailsContainer {
+    margin: 0.5rem 2rem;
+    padding: 2rem;
+    gap: 30px;
+  }
+}
+
 @media (max-width: 1024px) {
   .container {
-    padding: 20px;
+    padding-top: 4rem;
   }
   
   .detailsContainer {
     flex-direction: column;
-    padding: 20px;
+    margin: 0.5rem 1.5rem;
+    padding: 1.5rem;
   }
   
   .imageContainer {
-    max-width: 100%;
-  }
-  
-  .imageContainer::after {
-    display: none;
+    max-width: 500px;
+    margin: 0 auto;
   }
   
   .infoContainer h1 {
     font-size: 2rem;
+    text-align: center;
   }
-  
- 
+
+  .infoContainer h2 {
+    text-align: center;
+  }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding-top: 3rem;
+  }
+
+  .detailsContainer {
+    margin: 0.5rem 1rem;
+    padding: 1rem;
+  }
+
+  .imageContainer img {
+    min-height: 300px;
+  }
+
+  .infoContainer h1 {
+    font-size: 1.8rem;
+  }
+
+  .description h3 {
+    font-size: 1.3rem;
+  }
+
+  .description p {
+    font-size: 1rem;
+  }
+
+  .accordsList {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-top: 2rem;
+  }
+
+  .detailsContainer {
+    margin: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+  }
+
+  .imageContainer img {
+    min-height: 250px;
+  }
+
+  .infoContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .infoContainer h2 {
+    font-size: 1.1rem;
+  }
+
+  .accordTag {
+    padding: 4px 12px;
+    font-size: 0.9em;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+}
 
 .accordsSection {
   margin: 20px 0 24px 0;
