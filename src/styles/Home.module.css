@@ -1,0 +1,220 @@
+.fullPage {
+  background-color: var(--color-bg);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.fullPage::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #bfa14a11 0%, transparent 50%);
+  animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.textSection {
+  flex: 1;
+  text-align: left;
+  padding-right: 5%;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.imageSection {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInRight 1s ease-out;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.mainTitle {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 3rem;
+  color: var(--color-text);
+  letter-spacing: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  position: relative;
+  animation: titleReveal 1.2s ease-out;
+}
+
+.mainTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c4a747, transparent);
+}
+
+
+
+@keyframes lineGrow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes shortLineGrow {
+  to { 
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* For mobile, update the center alignment */
+@media (max-width: 680px) {
+  .mainTitle::after{
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+  }
+  
+  @keyframes lineGrow {
+    to { transform: translateX(-50%) scaleX(1); }
+  }
+  
+  @keyframes shortLineGrow {
+    to { 
+      transform: translateX(-50%) scaleX(1);
+      opacity: 1;
+    }
+  }
+}
+.subTitle {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 2.8rem;
+  color: var(--color-gold);
+  margin-top: 1.5rem;
+  letter-spacing: 6px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.tagline {
+  font-family: 'Bodoni Moda', serif;
+  font-size: 1.8rem;
+  color: var(--color-text);
+  letter-spacing: 5px;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.6s forwards;
+}
+
+.shopButton {
+  font-family: 'Bodoni Moda', serif;
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+  padding: 0.8rem 2.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.9s forwards;
+}
+
+.shopButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #bfa14a33, transparent);
+  transition: 0.5s;
+}
+
+.shopButton:hover::before {
+  left: 100%;
+}
+
+.shopButton:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  box-shadow: 0 0 20px #bfa14a33;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.productImage:hover {
+  transform: scale(1.02);
+}
+
+/* Keep your existing media queries and add these adjustments */
+@media (max-width: 680px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .textSection {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .mainTitle::after {
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+  }
+  
+  @keyframes lineGrow {
+    to { transform: translateX(-50%) scaleX(1); }
+  }
+}

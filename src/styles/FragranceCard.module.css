@@ -1,0 +1,167 @@
+.cardHorizontal {
+  font-family: 'Didot', 'Bodoni MT', serif;
+
+  display: flex;
+  align-items: center;
+  background-color: #111111;
+  border: 1px solid #444;
+  border-radius: 16px;
+  margin: 20px 0;
+  padding: 20px;
+  color: #fff;
+ 
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardHorizontal:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+}
+
+.cardHorizontal img {
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 20px;
+  object-fit: cover;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.similarity {
+  color: var(--color-gold);
+  font-weight: bold;
+  margin: 10px 0;
+}
+.title{
+  color: var(--color-gold);
+  font-family:var(--font-logo);
+  font-size: 24px;
+}
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cardHorizontal,
+  .cardHorizontal.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cardHorizontal img {
+    margin: 0 0 15px 0;
+    width: 80%;
+  }
+}
+
+
+/* Add these styles to your existing FragranceCard.module.css */
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-gold);
+  margin: 8px 0;
+}
+
+.showButton {
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.showButton:hover {
+  background-color: var(--color-gold);
+  color:  var(--color-bg);
+}
+
+.detailsContainer {
+  margin: 10px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+.detailsLink {
+  color: var(--color-text);
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.detailsLink:hover {
+  color: var(--color-gold);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Add this to your existing CSS file */
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.actions button, .detailsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+}
+
+.actions button:hover, .detailsButton:hover {
+  background-color: var(--color-gold);
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.detailsButton {
+  text-decoration: none;
+  padding: 8px 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* تأثير نبض للأيقونات عند التحويم */
+.actions button:hover svg, .detailsButton:hover svg {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.detailsButton:hover {
+  background-color: var(--color-gold);
+  color: var(--color-bg);
+}

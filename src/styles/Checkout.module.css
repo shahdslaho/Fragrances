@@ -1,0 +1,119 @@
+.checkoutContainer {
+  width: 100vw;
+  height: 100vh;
+  padding: 10rem 0 15rem 0;
+  background: var(--color-bg);
+  /* Remove min-width and min-height */
+}
+
+.checkoutCard {
+  max-width: 600px;
+  margin: 0 auto ;
+  background: #181818;
+  border-radius: 16px;
+  border: 1px solid  var(--color-gold);
+  padding: 32px;
+  color: #fff;
+}
+
+.title {
+  color: var(--color-gold);
+  text-align: center;
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #bfa14a33;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
+.cartImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  margin-right: 16px;
+  border: 1px solid #bfa14a33;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemName {
+  margin: 0;
+  color: var(--color-gold);
+  font-weight: bold;
+}
+
+.itemBrand {
+  margin: 0;
+  color:  var(--color-gold);
+}
+
+.itemPrice {
+  color: #fff;
+  font-weight: bold;
+}
+
+.total {
+  text-align: right;
+  margin-top: 24px;
+  color: var(--color-gold);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.whatsappBtn {
+  width: 100%;
+  background: var(--color-gold);
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.whatsappBtn:hover {
+  background: #fff;
+  color: var(--color-gold);
+}
+
+.qtyControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.qtyBtn {
+  background: none;
+  border: none;
+  color: #bfa14a;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0 2px;
+}
+
+.qtyBtn:hover {
+  color: #fff;
+}
+
+.qtyNum {
+  min-width: 28px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}

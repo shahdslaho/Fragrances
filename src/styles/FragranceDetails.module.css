@@ -1,0 +1,187 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding-top:5rem;
+}
+
+
+.detailsContainer {
+  display: flex;
+  gap: 40px;
+  padding: 2rem 5rem;
+  margin: 0.5rem 5rem 0rem;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  height:auto;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+}
+
+.imageContainer::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-gold);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.imageContainer img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  min-height: 400px;
+}
+
+.imageContainer:hover img {
+  transform: scale(1.02);
+}
+
+.infoContainer {
+  flex: 1;
+  flex-direction: column;
+}
+
+.infoContainer h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+}
+
+.infoContainer h2 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 0 0 20px;
+  color: #aaa;
+  font-style: italic;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 10px;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-gold);
+  margin: 20px 0;
+  display: inline-block;
+  padding: 5px 15px;
+  border-left: 3px solid var(--color-gold);
+}
+
+.description {
+  margin: 30px 0;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.description h3 {
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  padding-bottom: 10px;
+}
+
+.description p {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* حالات التحميل والخطأ */
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.loading {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+}
+
+.error {
+  color: #ff5555;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .detailsContainer {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .imageContainer {
+    max-width: 100%;
+  }
+  
+  .imageContainer::after {
+    display: none;
+  }
+  
+  .infoContainer h1 {
+    font-size: 2rem;
+  }
+  
+ 
+}
+
+
+.accordsSection {
+  margin: 20px 0 24px 0;
+}
+
+.sectionTitle {
+  color: #bfa14a;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.accordsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.accordTag {
+  background: #181818;
+  color: #bfa14a;
+  border: 1px solid #bfa14a;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.97em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.accordTag:hover {
+  background: #bfa14a;
+  color: #181818;
+}
+
+.noAccords {
+  color: #888;
+  font-size: 0.98em;
+}
