@@ -10,10 +10,9 @@ const FragranceCard = ({ fragrance, reverse = false }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
  
-  const cart = useSelector(state => state.cart?.cart || []);
   const favorites = useSelector(state => state.favorites?.favorites || []);
 
-  const isInCart = cart.find(item => item.id === fragrance.id);
+ 
   const isFavorite = favorites.find(item => item.id === fragrance.id);
   const { isAuthenticated } = useSelector(state => state.auth);
   const handleAddToCart = () => {
@@ -21,9 +20,9 @@ const FragranceCard = ({ fragrance, reverse = false }) => {
       navigate('/login');
       return;
     }
-    if (!isInCart) {
+    
       dispatch(addToCart(fragrance));
-    }
+    
    
   };
   
@@ -31,9 +30,9 @@ const FragranceCard = ({ fragrance, reverse = false }) => {
     if (!isAuthenticated) {
       navigate('/login');
       return;}
-    if (!isFavorite) {
+    
       dispatch(addToFavorites(fragrance));
-    }
+    
     
   };
   

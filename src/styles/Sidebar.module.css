@@ -12,10 +12,15 @@
   z-index: 1000;
   transition: right 0.3s ease;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+
+}
+.sidebar ul{
+  margin-bottom: 4rem;
 }
 
 .sidebar.open {
   right: 0;
+  
 }
 
 .close-btn {
@@ -135,7 +140,7 @@
   margin-top: 20px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
-  margin-bottom: 10rem;
+ 
 }
 .checkout-btn:hover {
   background: #fff;

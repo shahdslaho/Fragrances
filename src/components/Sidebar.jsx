@@ -1,23 +1,33 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "../styles/Sidebar.module.css";
-import { removeFromCart } from "../redux/slices/cartSlice";
-import { removeFromFavorites } from "../redux/slices/favoritesSlice";
-import { FaTrash } from "react-icons/fa"; // <-- Add this import
+//استخدام الدوال من ال slice
+import { removeFromCart,clearCart } from "../redux/slices/cartSlice";
+import { removeFromFavorites,clearFavorites } from "../redux/slices/favoritesSlice";
+import { FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ isOpen, onClose, activeTab }) => {
+  //الوصول لحالة cart و favorites من الـ Redux.
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart?.cart || []);
   const favoriteItems = useSelector((state) => state.favorites?.favorites || []);
   const dataToRender = activeTab === "cart" ? cartItems : favoriteItems;
-  const navigate = useNavigate();
+  
 
   const handleRemove = (id) => {
     if (activeTab === "cart") {
       dispatch(removeFromCart(id));
     } else {
       dispatch(removeFromFavorites(id));
+    }
+  };
+  const handleCleare = () => {
+    if (activeTab === "cart") {
+      dispatch(clearCart());
+    } else {
+      dispatch(clearFavorites());
     }
   };
 
@@ -34,6 +44,7 @@ const Sidebar = ({ isOpen, onClose, activeTab }) => {
           <>
             <ul>
               {dataToRender.map((item) => (
+                
                 <li key={item.id} className={styles.item}>
                   <img src={item.image} alt={item.name} className={styles["item-img"]} />
                   <div className={styles["item-info"]}>
@@ -48,18 +59,30 @@ const Sidebar = ({ isOpen, onClose, activeTab }) => {
                   >
                     <FaTrash />
                   </button>
+                  
                 </li>
+                
               ))}
+                
+                  <button className={styles["checkout-btn"]}
+                    
+                    onClick={() => handleCleare()}
+                    title="Remove"
+                  >
+                    <FaTrash />
+                  </button>
+                  {activeTab === "cart" && (
+                  <button
+                    className={styles["checkout-btn"]}
+                    onClick={() => navigate("/checkout")}
+                  >
+                    Checkout
+                  </button>
+                  )}
+                 
             </ul>
-            {/* Checkout Button: only show in cart tab */}
-            {activeTab === "cart" && (
-              <button
-                className={styles["checkout-btn"]}
-                onClick={() => navigate("/checkout")}
-              >
-                Checkout
-              </button>
-            )}
+           
+        
           </>
         )}
       </div>

@@ -37,7 +37,6 @@ function Navbar() {
             <span className={styles.deBeaute}>DE BEAUTÉ</span>
           </Link>
         </div>
-
         <ul className={styles.links}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/shop">Shop</Link></li>
